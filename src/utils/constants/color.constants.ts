@@ -1,0 +1,1 @@
+export const TEXT_FIELD_DEFAULT_COLOR = "red";
