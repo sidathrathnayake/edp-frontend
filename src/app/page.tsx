@@ -12,18 +12,15 @@ export default function HomePage() {
   };
 
   return (
-    <form className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <InputField
         id="name"
         name="name"
         label="Name"
         value={name}
         handleChangeInput={handleChangeInput}
-        customStyles={{
-          textColor: "blue",
-        }}
         disabled={false}
       />
-    </form>
+    </div>
   );
 }

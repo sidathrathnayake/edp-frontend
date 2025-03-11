@@ -1,6 +1,14 @@
 import clsx from "clsx";
-import { TEXT_FIELD_DEFAULT_COLOR } from "@constants/color.constants";
-import { IInputFieldStyles } from "@services/interfaces";
+import {
+  COLOR_TEXT_FIELD_INPUT,
+  COLOR_TEXT_FIELD_BORDER,
+  COLOR_TEXT_FIELD_ERROR_BORDER,
+  COLOR_TEXT_FIELD_PLACE_HOLDER,
+  COLOR_TEXT_FIELD_FOCUS_BORDER,
+  COLOR_TEXT_FIELD_HOVER_BORDER,
+  COLOR_TEXT_FIELD_LABEL,
+  COLOR_TEXT_FIELD_FOCUS_LABEL,
+} from "@constants/color.constants";
 
 interface IInputField {
   id: string;
@@ -8,7 +16,6 @@ interface IInputField {
   label: string;
   value: any;
   error?: string;
-  customStyles?: IInputFieldStyles;
   disabled?: boolean;
   handleChangeInput: (value: any) => void;
 }
@@ -19,12 +26,9 @@ const InputField = ({
   label,
   value,
   error,
-  customStyles,
   disabled,
   handleChangeInput,
 }: IInputField) => {
-  const textColor = customStyles?.textColor || TEXT_FIELD_DEFAULT_COLOR;
-
   return (
     <div className="w-full max-w-sm min-w-[200px]">
       <div className="relative">
@@ -35,12 +39,14 @@ const InputField = ({
           disabled={disabled}
           onChange={(e) => handleChangeInput(e.target.value)}
           className={clsx(
-            `peer w-full bg-transparent placeholder:text-${textColor}-400 `,
-            `text-sm text-${textColor}-700 `,
-            `border border-${textColor}-200 `,
+            `peer w-full bg-transparent placeholder:${COLOR_TEXT_FIELD_PLACE_HOLDER}`,
+            `text-sm ${COLOR_TEXT_FIELD_INPUT}`,
+            `border ${
+              error ? COLOR_TEXT_FIELD_ERROR_BORDER : COLOR_TEXT_FIELD_BORDER
+            }`,
             `rounded-lg px-3 py-2 transition duration-300 ease `,
-            `focus:outline-none focus:border-${textColor}-400 `,
-            `hover:border-${textColor}-300 `,
+            `focus:outline-none focus:${COLOR_TEXT_FIELD_FOCUS_BORDER}`,
+            `hover: ${COLOR_TEXT_FIELD_HOVER_BORDER}`,
             `shadow-sm focus:shadow `
           )}
         />
@@ -48,8 +54,8 @@ const InputField = ({
           htmlFor={id}
           className={clsx(
             `absolute cursor-text bg-white px-1 left-2.5 top-2.5 `,
-            `text-${textColor}-400 text-sm transition-all transform origin-left `,
-            `peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-${textColor}-400 peer-focus:scale-90`
+            `${COLOR_TEXT_FIELD_LABEL} text-sm transition-all transform origin-left `,
+            `peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:${COLOR_TEXT_FIELD_FOCUS_LABEL} peer-focus:scale-90`
           )}
         >
           {label}
