@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { COLOR_PALETTE } from "@constants/color.constants";
 import { IInputFieldStyles } from "@services/interfaces";
-import { getColor } from "../../helpers/common.helpers";
+import { getColor } from "@helpers/client/common.helpers";
 
 interface IInputField {
   id: string;
