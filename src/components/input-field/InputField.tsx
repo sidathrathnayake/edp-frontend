@@ -1,14 +1,7 @@
 import clsx from "clsx";
-import {
-  COLOR_TEXT_FIELD_INPUT,
-  COLOR_TEXT_FIELD_BORDER,
-  COLOR_TEXT_FIELD_ERROR_BORDER,
-  COLOR_TEXT_FIELD_PLACE_HOLDER,
-  COLOR_TEXT_FIELD_FOCUS_BORDER,
-  COLOR_TEXT_FIELD_HOVER_BORDER,
-  COLOR_TEXT_FIELD_LABEL,
-  COLOR_TEXT_FIELD_FOCUS_LABEL,
-} from "@constants/color.constants";
+import { COLOR_PALETTE } from "@constants/color.constants";
+import { IInputFieldStyles } from "@services/interfaces";
+import { getColor } from "../../helpers/common.helpers";
 
 interface IInputField {
   id: string;
@@ -16,6 +9,7 @@ interface IInputField {
   label: string;
   value: any;
   error?: string;
+  customStyles?: IInputFieldStyles;
   disabled?: boolean;
   handleChangeInput: (value: any) => void;
 }
@@ -26,9 +20,12 @@ const InputField = ({
   label,
   value,
   error,
+  customStyles,
   disabled,
   handleChangeInput,
 }: IInputField) => {
+  const textColor = customStyles?.textColor || COLOR_PALETTE.GRAY;
+
   return (
     <div className="w-full max-w-sm min-w-[200px]">
       <div className="relative">
@@ -39,23 +36,28 @@ const InputField = ({
           disabled={disabled}
           onChange={(e) => handleChangeInput(e.target.value)}
           className={clsx(
-            `peer w-full bg-transparent placeholder:${COLOR_TEXT_FIELD_PLACE_HOLDER}`,
-            `text-sm ${COLOR_TEXT_FIELD_INPUT}`,
-            `border ${
-              error ? COLOR_TEXT_FIELD_ERROR_BORDER : COLOR_TEXT_FIELD_BORDER
-            }`,
+            `peer w-full bg-transparent`,
+            `placeholder:${getColor({type: "text", color: textColor, shade: "400"})} `,
+            `placeholder:opacity-0`,
+            `text-sm ${getColor({type: "text", color: textColor, shade: "700"})} `,
+            `border `,
+            getColor({type: "border", color: textColor, shade: "200"}),
             `rounded-lg px-3 py-2 transition duration-300 ease `,
-            `focus:outline-none focus:${COLOR_TEXT_FIELD_FOCUS_BORDER}`,
-            `hover: ${COLOR_TEXT_FIELD_HOVER_BORDER}`,
-            `shadow-sm focus:shadow `
+            `focus:outline-none focus:${getColor({type: "border", color: textColor, shade: "400"})} `,
+            `hover:${getColor({type: "border", color: textColor, shade: "300"})} `,
+            `shadow-sm focus:shadow `,
+            disabled && 'opacity-50 cursor-not-allowed'
           )}
         />
         <label
           htmlFor={id}
           className={clsx(
             `absolute cursor-text bg-white px-1 left-2.5 top-2.5 `,
-            `${COLOR_TEXT_FIELD_LABEL} text-sm transition-all transform origin-left `,
-            `peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:${COLOR_TEXT_FIELD_FOCUS_LABEL} peer-focus:scale-90`
+            `${getColor({type: "text", color: textColor, shade: "400"})} `,
+            `text-sm transition-all transform origin-left `,
+            `peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs `,
+            `peer-focus:${getColor({type: "text", color: textColor, shade: "400"})} `,
+            `peer-focus:scale-90`
           )}
         >
           {label}

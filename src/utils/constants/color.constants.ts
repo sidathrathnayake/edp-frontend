@@ -1,9 +1,17 @@
 // TEXT FIELD
-export const COLOR_TEXT_FIELD_INPUT = "text-gray-700";
-export const COLOR_TEXT_FIELD_LABEL = "text-gray-400";
-export const COLOR_TEXT_FIELD_FOCUS_LABEL = "text-gray-400";
-export const COLOR_TEXT_FIELD_PLACE_HOLDER = "text-gray-400";
-export const COLOR_TEXT_FIELD_BORDER = "text-gray-400";
-export const COLOR_TEXT_FIELD_FOCUS_BORDER = "border-gray-400";
-export const COLOR_TEXT_FIELD_HOVER_BORDER = "border-gray-300";
-export const COLOR_TEXT_FIELD_ERROR_BORDER = "border-red-500";
+export const COLOR_PALETTE = {
+    GRAY: "gray",
+    BLUE: "blue",
+    RED: "red",
+    BLACK: "black",
+    GREEN: "green",
+    YELLOW: "yellow",
+    ORANGE: "orange",
+    PURPLE: "purple",
+    PINK: "pink",
+    CYAN: "cyan",
+    MAGENTA: "magenta",
+    TEAL: "teal",
+    LIME: "lime",
+};
+

@@ -1,5 +1,6 @@
 "use client"
 import { InputField } from "@components/index";
+import { COLOR_PALETTE } from "@constants/color.constants";
 import { useState } from "react";
 
 export default function HomePage() {
@@ -7,7 +8,6 @@ export default function HomePage() {
   const [name, setName] = useState("");
 
   const handleChangeInput = (value: any) => {
-    console.log(value);
     setName(value);
   };
 
@@ -18,6 +18,9 @@ export default function HomePage() {
         name="name"
         label="Name"
         value={name}
+        customStyles={{
+          textColor: COLOR_PALETTE.RED,
+        }}
         handleChangeInput={handleChangeInput}
         disabled={false}
       />
