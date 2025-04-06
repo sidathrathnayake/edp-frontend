@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { InputField } from "@components/index";
 import { COLOR_PALETTE } from "@constants/color.constants";
 import { useState } from "react";
