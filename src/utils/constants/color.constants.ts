@@ -13,5 +13,16 @@ export const COLOR_PALETTE = {
     MAGENTA: "magenta",
     TEAL: "teal",
     LIME: "lime",
+    ZINC: "zinc",
+    NEUTRAL: "neutral",
+    STONE: "stone",
+    SLATE: "slate",
+    COOL_GRAY: "coolGray",
+    WARM_GRAY: "warmGray",
+    INDIGO: "indigo",
+    VIOLET: "violet",
+    AMBER: "amber",
 };
 
+export const TEXT_FIELD_DEFAULT_COLOR = COLOR_PALETTE.GRAY;
+export const TEXT_FIELD_DEFAULT_ERROR_COLOR = COLOR_PALETTE.RED;

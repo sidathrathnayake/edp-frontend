@@ -19,7 +19,7 @@ export default function HomePage() {
         label="Name"
         value={name}
         customStyles={{
-          textColor: COLOR_PALETTE.GREEN,
+          textColor: "violet",
         }}
         handleChangeInput={handleChangeInput}
         disabled={false}

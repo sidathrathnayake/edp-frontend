@@ -30,8 +30,9 @@
       "@services/*": ["./src/services/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@helpers/*": ["./src/helpers/*"],
+      "@enums/*": ["./src/utils/enums/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "scripts/generate-safelist.ts"],
   "exclude": ["node_modules"]
 }
